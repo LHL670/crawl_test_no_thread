@@ -9,11 +9,9 @@ import getIDList
 
 
 def CGUCrawlWorker_noThread(label):
-    workCount = 0
     IDList = getIDList.getIDList(label)
-    while workCount < 5:
-        personalData = getPersonalPage.getPersonalPage(IDList[workCount])
-        workCount = workCount + 1
+    for id in IDList:
+        personalData = getPersonalPage.getPersonalPage(id)
         manageFirebase.updatePersonalData(personalData)
 
     print("Done.")
@@ -22,5 +20,5 @@ def CGUCrawlWorker_noThread(label):
 # 累積到一定得筆數upload firebase
 if __name__ == '__main__':
     print('start')
-    label = 'causal_inference'
+    label = 'outlier_detection'
     CGUCrawlWorker_noThread(label)
