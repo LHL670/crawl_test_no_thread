@@ -5,7 +5,7 @@ db = firebase_db_connect.db()
 
 def updatePersonalData(personalData):
     items = jsonTransfer.jsontransfer(personalData)
-    print(items)
+    print(items['id'])
     ref = db.collection(u'cguscholar').document((items['id']))
     ref.collection(u'updateTime').document(
         (items['personalData']['updateTime'])).set(items['cited'])

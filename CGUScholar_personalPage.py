@@ -20,5 +20,5 @@ def CGUCrawlWorker_noThread(label):
 # 累積到一定得筆數upload firebase
 if __name__ == '__main__':
     print('start')
-    label = 'outlier_detection'
+    label = 'causal_inference'
     CGUCrawlWorker_noThread(label)
